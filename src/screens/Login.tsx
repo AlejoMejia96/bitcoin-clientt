@@ -12,7 +12,7 @@ const Login = ({ navigation }: any) => {
   const { userid, setUserid } = useContext(UserContext); 
 
   const handleSubmit = async () => {
-    let userInfo = await axios.post('http://localhost:3000/login', {username: username, password: password})
+    let userInfo = await axios.post('https://rails-bitcoin-api.herokuapp.com/login', {username: username, password: password})
     let infoLogin = userInfo.data.login;
     
     if (username !== '' && password !== ''){
