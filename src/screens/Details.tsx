@@ -9,7 +9,7 @@ const Details = ({ route, navigation }: any) => {
 
   const details = async () => {
     let idOperation = {id: route.params.id};
-    let detailOperation = await axios.post('http://localhost:3000/details', idOperation)
+    let detailOperation = await axios.post('https://rails-bitcoin-api.herokuapp.com/details', idOperation)
     let totalDetails = detailOperation.data;
     setDet(totalDetails)
   }
