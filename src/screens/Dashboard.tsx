@@ -28,7 +28,7 @@ const Dashboard = ({ navigation }: any) => {
   }
 
   const data = async() => {
-    let info = await axios.get('http://localhost:3000/info');
+    let info = await axios.get('https://rails-bitcoin-api.herokuapp.com/info');
     let infoBitcoin = info.data.data;
     setInfo(infoBitcoin)
   };
