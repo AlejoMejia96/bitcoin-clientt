@@ -10,7 +10,7 @@ const History = ({ navigation }: any) => {
 
   const historial = async () => {
     let idUser = {user_id: userid};
-    let userOper = await axios.post('http://localhost:3000/historial', idUser)
+    let userOper = await axios.post('https://rails-bitcoin-api.herokuapp.com/historial', idUser)
     let operations = userOper.data.message;
     setOper(operations)
   }
