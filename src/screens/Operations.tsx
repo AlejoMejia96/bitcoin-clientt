@@ -21,7 +21,7 @@ const Operations = ({navigation}: any) => {
   
   const accounts = async () => {
     let money = {id: userid}
-    let moneyInfo = await axios.post('http://localhost:3000/show', money)
+    let moneyInfo = await axios.post('https://rails-bitcoin-api.herokuapp.com/show', money)
     let totalMoney = moneyInfo.data;
     setAccount({
       btc: totalMoney.btc,
@@ -38,7 +38,7 @@ const Operations = ({navigation}: any) => {
   }, [amount])
   
   const data = async() => {
-    let info = await axios.get('http://localhost:3000/info');
+    let info = await axios.get('https://rails-bitcoin-api.herokuapp.com/info');
     let infoBitcoin = info.data.data;
 
     if(current === "usd" && amount !== ""){
@@ -68,7 +68,7 @@ const Operations = ({navigation}: any) => {
       const infoOperation = {type_operation: "buy", user_id: userid, current_sent: current_received,
         current_received: current, quantity_sent: parseFloat(equival.toString()), quantity_received: parseFloat(allMoney)};
   
-      let shop = await axios.post('http://localhost:3000/buy', infoOperation);
+      let shop = await axios.post('https://rails-bitcoin-api.herokuapp.com/buy', infoOperation);
       if(shop.data.message == "Successful purchase!"){
         setAmount("");
         setEquival(0);
@@ -93,7 +93,7 @@ const Operations = ({navigation}: any) => {
       let infOperation = {type_operation: "sell", user_id: userid, current_sent: current,
         current_received: current_received, quantity_sent: parseFloat(allMoney), quantity_received: parseFloat(equival.toString())};
   
-      let sold = await axios.post('http://localhost:3000/sell', infOperation);
+      let sold = await axios.post('https://rails-bitcoin-api.herokuapp.com/sell', infOperation);
       if(sold.data.message == "Successful purchase!"){
         setAmount("");
         setEquival(0);
